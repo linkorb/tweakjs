@@ -1,8 +1,22 @@
 <html>
     <head>
-
-        <script type="text/javascript" src="tweaks.js"></script>
+        <script type="text/javascript" src="demo/tweaks.js"></script>
         <script type="text/javascript" src="../tweak.js"></script>
+        <script type="text/javascript">
+            var hardCoded  = {
+                testFunc: function() {
+                    console.log('function called: window.hardCoded.testFunc')
+                }
+            }
+        </script>
+        <style>
+            .red-border {
+                border: solid 1px red;
+            }
+            .green-border {
+                border: solid 1px green;
+            }
+        </style>
     </head>
     <body>
         <h1 style="color: #008000;">Welcome to Tweak.js</h1>
@@ -13,6 +27,14 @@
         <footer>
             <h3>This will be hidden</h3>
             <p style="display:none;">This will be shown</h3>
+            <p class="inner-html">null</p>
+            <p class="inner-html">null</p>
+            <div id="red" class="green-border">DIV with red border</div>
+            <div id="to_remove">This should be removed</div>
+            <div class="add-style">
+                Add style, apply to the following div:
+                <div>DIV</div>
+            </div>
         </footer>
     </body>
 </html>
