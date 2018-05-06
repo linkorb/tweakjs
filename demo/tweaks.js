@@ -6,6 +6,57 @@ var tweaks = [
     "value": "This is a tweaked header",
   },
   {
+    "description": "Set custom inner HTML",
+    "action": "setInnerHtml",
+    "selector": ".inner-html",
+    "value": "<strong><i>strong i</i></strong>",
+  },
+  {
+    "description": "Add class name",
+    "action": "addClass",
+    "selector": "#red",
+    "value": "red-border",
+  },
+  {
+    "description": "Remove class name",
+    "action": "removeClass",
+    "selector": "#red",
+    "value": "green-border",
+  },
+  {
+    "description": "Remove element",
+    "action": "remove",
+    "selector": "#to_remove",
+  },
+  {
+    "description": "Add style tag",
+    "action": "addStyle",
+    "value": ".add-style>div \{ background: red; \}",
+  },
+  {
+    "description": "Add script tag: head + innerHTML",
+    "action": "addScript",
+    "location": "head",
+    "src": "",
+    "value": "console.log('Add script tag: head + innerHTML')",
+  },
+  {
+    "description": "Add script tag: body + src",
+    "action": "addScript",
+    "location": "body",
+    "src": "demo/sample.js",
+  },
+  {
+    "description": "Execute script: call namespaced function",
+    "action": "execute",
+    "value": "hardCoded.testFunc",
+  },
+  {
+    "description": "Execute script with eval",
+    "action": "execute",
+    "value": "alert('this is bad')",
+  },
+  {
     "description": "Set avatar to batman",
     "action": "setAttribute",
     "selector": "img#avatar",
