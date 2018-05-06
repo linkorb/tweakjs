@@ -17,32 +17,301 @@
             .green-border {
                 border: solid 1px green;
             }
+            fieldset {
+                margin-top: 12px;
+                border: 1px solid #39c;
+                padding: 12px;
+                -moz-border-radius: 8px;
+                border-radius: 8px;
+            }
+            .demo {
+                background-color: #ddd;
+                color: #555;
+            }
+            .code {
+                background-color: #333333;
+                color: #eee;
+            }
         </style>
     </head>
     <body>
         <h1 style="color: #008000;">Welcome to Tweak.js</h1>
-        <a class="search" href="http://google.com">Search link</a>
-        <div>
-            <img id="avatar" src="https://findicons.com/files/icons/1293/the_batman_vol_1/128/young_bruce_wayne.png" />
-        </div>
-        <footer>
-            <h3>This will be hidden</h3>
-            <p style="display:none;">This will be shown</h3>
-            <p class="inner-html">null</p>
-            <p class="inner-html">null</p>
-            <div id="red" class="green-border">DIV with red border</div>
-            <div id="to_remove">This should be removed</div>
-            <div class="add-style">
-                Add style, apply to the following div:
-                <div>DIV</div>
-            </div>
+        <p>This simple javascript library allows you to tweak the DOM of your pages simply by passing it an array of tweaks.
+        </p>
+        <h3>Examples of tweaks:</h3>
 
-            <div class="post-load">
-                The following div is tweaked by scripts in the page:
-                <div>DIV</div>
-                <span></span>
+        <fieldset>
+            <legend>setInnerText</legend>
+            <div class="demo">
+                <h2>Original</h2>
             </div>
-        </footer>
+            <pre class="code">
+{
+    "description": "Set custom header text",
+    "action": "setInnerText",
+    "selector": "h2:first-of-type",
+    "value": "This is a tweaked header",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>setInnerHtml</legend>
+            <div class="demo">
+                <div class="inner-html">Original</div>
+            </div>
+            <pre class="code">
+{
+    "description": "Set custom inner HTML",
+    "action": "setInnerHtml",
+    "selector": ".inner-html",
+    "value": "&lt;strong&gt;strong &lt;i&gt;i&lt;/i&gt;&lt;/strong&gt;",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>setAttribute</legend>
+            <div class="demo">
+                <img id="avatar" src="https://findicons.com/files/icons/1293/the_batman_vol_1/128/young_bruce_wayne.png" />
+            </div>
+            <pre class="code">
+{
+    "description": "Set avatar to batman",
+    "action": "setAttribute",
+    "selector": "img#avatar",
+    "attribute": "src",
+    "value": "http://www.iconwanted.com/downloads/david-lanham/heroes-and-villains/png/128x128/batman.png",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>setAttribute</legend>
+            <div class="demo">
+                <a class="search" href="http://google.com">Search link</a>
+            </div>
+            <pre class="code">
+{
+    "description": "Use Bing for search instead of Google",
+    "action": "setAttribute",
+    "selector": "a[href='http://google.com']",
+    "attribute": "href",
+    "value": "http://bing.com",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>setAttribute</legend>
+            <div class="demo">
+                <a class="search-target" href="http://google.com">Search link</a>
+            </div>
+            <pre class="code">
+{
+    "description": "Open search in new tab",
+    "action": "setAttribute",
+    "selector": "a.search-target",
+    "attribute": "target",
+    "value": "_blank",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>hide</legend>
+            <div class="demo">
+                <footer><h3>This will be hidden</h3>There is a &lt;h3 /&gt; above this line</footer>
+            </div>
+            <pre class="code">
+{
+    "description": "Hide h3 in footer",
+    "action": "hide",
+    "selector": "footer h3",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>show</legend>
+            <div class="demo">
+                <footer><p style="display:none;">This &lt;p /&gt; had a style="display: none;"</p></footer>
+            </div>
+            <pre class="code">
+{
+    "description": "Show a text that was hidden",
+    "action": "show",
+    "selector": "footer p",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>setStyleAttribute</legend>
+            <div class="demo">
+                <h5>This is an &lt;h5 /&gt;</h5>
+            </div>
+            <pre class="code">
+{
+    "description": "Set header style to underline",
+    "action": "setStyleAttribute",
+    "selector": "h1, h5",
+    "attribute": "text-decoration",
+    "value": "underline",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>addClass</legend>
+            <div class="demo">
+                <div id="red">Original</div>
+            </div>
+            <pre class="code">
+{
+    "description": "Add class name",
+    "action": "addClass",
+    "selector": "#red",
+    "value": "red-border",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>removeClass</legend>
+            <div class="demo">
+                <div id="red2" class="green-border">Original</div>
+            </div>
+            <pre class="code">
+{
+    "description": "Remove class name",
+    "action": "removeClass",
+    "selector": "#red2",
+    "value": "green-border",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>remove</legend>
+            <div class="demo">
+                <div id="to_remove">Original</div>
+            </div>
+            <pre class="code">
+{
+    "description": "Remove element",
+    "action": "remove",
+    "selector": "#to_remove",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>addStyle</legend>
+            <div class="demo">
+                <div class="add-style"><div>no selector required</div></div>
+            </div>
+            <pre class="code">
+{
+    "description": "Add style tag",
+    "action": "addStyle",
+    "value": ".add-style>div \{ background: red; \}",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>addScript</legend>
+            <div class="demo">
+                no selector required
+            </div>
+            <pre class="code">
+{
+    "description": "Add script tag: head + innerHTML",
+    "action": "addScript",
+    "location": "head",
+    "value": "console.log('addScript: Add script tag: head + innerHTML')",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>addScript</legend>
+            <div class="demo">
+                no selector required
+            </div>
+            <pre class="code">
+{
+    "description": "Add script tag: body + src",
+    "action": "addScript",
+    "location": "body",
+    "src": "demo/sample.js",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>execute</legend>
+            <div class="demo">
+                no selector required
+            </div>
+            <pre class="code">
+{
+    "description": "Execute script: call namespaced function",
+    "action": "execute",
+    "value": "hardCoded.testFunc",
+}
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>execute</legend>
+            <div class="demo">
+                no selector required
+            </div>
+            <pre class="code">
+{
+    "description": "Execute script with eval",
+    "action": "execute",
+    "value": "console.log('execute: eval is bad')",
+}
+            </pre>
+        </fieldset>
+
+        <br/><br/>
+        <h3>Advanced - 3 ways of loading tweaks</h3>
+
+        <fieldset>
+            <legend>Load tweaks global variable</legend>
+            <div class="demo">
+                Directly import the <b>tweaks</b> global variable into the document &lt;head /&gt;, before loading the <b>tweak.js</b>
+            </div>
+            <pre class="code">
+&lt;script type="text/javascript" src="demo/tweaks.js"&gt;&lt;/script&gt;
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>Loading tweaks from document itself</legend>
+            <div class="demo">
+                    <div class="post-load">
+                        The following div is tweaked by scripts in the page:
+                        <div>DIV</div>
+                        <span></span>
+                    </div>
+            </div>
+            <pre class="code">
+&lt;script&gt;
+tweakjs.loader.load(
+    [
+        {
+            "description": "Set div text to bold",
+            "action": "setInnerText",
+            "selector": ".post-load>div",
+            "value": "This text is replaced after pageload.",
+        },
+        {
+            "description": "Set custom inner HTML",
+            "action": "setInnerHtml",
+            "selector": ".post-load>span",
+            "value": "<i>Italic</i>",
+        }
+    ]
+)
+&lt;/script&gt;
+            </pre>
+        </fieldset>
+        <fieldset>
+            <legend>Load tweaks from external resource</legend>
+            <div class="demo">
+                <p>Add the <b>tweaksUrl</b> parameter in the URL to load the external resource.</p>
+                <p>e.g. <code>http://localhost:8080/demo?tweaksUrl=http://localhost:8080/demo/tweaks.js</code></p>
+            </div>
+        </fieldset>
 
         <script type="text/javascript">
             tweakjs.loader.load(

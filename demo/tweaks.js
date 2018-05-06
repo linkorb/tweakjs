@@ -2,14 +2,14 @@ var tweaks = [
   {
     "description": "Set custom header text",
     "action": "setInnerText",
-    "selector": "h1:first-of-type",
+    "selector": "h2:first-of-type",
     "value": "This is a tweaked header",
   },
   {
     "description": "Set custom inner HTML",
     "action": "setInnerHtml",
     "selector": ".inner-html",
-    "value": "<strong><i>strong i</i></strong>",
+    "value": "<strong>strong <i>i</i></strong>",
   },
   {
     "description": "Add class name",
@@ -20,7 +20,7 @@ var tweaks = [
   {
     "description": "Remove class name",
     "action": "removeClass",
-    "selector": "#red",
+    "selector": "#red2",
     "value": "green-border",
   },
   {
@@ -73,12 +73,12 @@ var tweaks = [
   {
     "description": "Open search in new tab",
     "action": "setAttribute",
-    "selector": "a.search",
+    "selector": "a.search-target",
     "attribute": "target",
     "value": "_blank",
   },
   {
-    "description": "Remove h3 in footer",
+    "description": "Hide h3 in footer",
     "action": "hide",
     "selector": "footer h3",
   },
@@ -90,7 +90,7 @@ var tweaks = [
   {
     "description": "Set header style to underline",
     "action": "setStyleAttribute",
-    "selector": "h1",
+    "selector": "h1, h5",
     "attribute": "text-decoration",
     "value": "underline",
   },
