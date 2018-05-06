@@ -13,7 +13,7 @@
     init: function (event) {
       this.debug = w.tweakDebug || this.debug
       this.log('tweakjs initializing ...')
-      this.apply(tweaks)
+      this.loader.loadGlobal().loadUri()
     },
     apply: function (tweaks) {
       tweaks.forEach(t.applyTweak)
@@ -108,9 +108,37 @@
           eval(tweak.value)
         }
       }
+    },
+    loader: {
+      load: function(tweaks) {
+        t.apply(tweaks)
+      },
+      loadGlobal: function() {
+        if (w.tweaks) {
+          t.apply(w.tweaks)
+        }
+        return this;
+      },
+      loadUri: function(){
+        if (t.debug) {
+          let uri = this.getUrlParameter('tweaksUrl'), s = d.createElement('script')
+          if (uri) {
+            s.type = 'text/javascript'
+            s.onload = w.tweakjs.loader.loadGlobal
+            s.src = uri
+            t.getDocumentHead().appendChild(s)
+          }
+        }
+      },
+      getUrlParameter: function(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
+        let regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
+        let results = regex.exec(location.search)
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
+      }
     }
   }
-
+  w.tweakjs = t;
   d.addEventListener('DOMContentLoaded', t.init.bind(t));
 
 })(window, document);

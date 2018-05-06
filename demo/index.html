@@ -36,6 +36,31 @@
                 Add style, apply to the following div:
                 <div>DIV</div>
             </div>
+
+            <div class="post-load">
+                The following div is tweaked by scripts in the page:
+                <div>DIV</div>
+                <span></span>
+            </div>
         </footer>
+
+        <script type="text/javascript">
+            tweakjs.loader.load(
+                [
+                    {
+                        "description": "Set div text to bold",
+                        "action": "setInnerText",
+                        "selector": ".post-load>div",
+                        "value": "This text is replaced after pageload.",
+                    },
+                    {
+                        "description": "Set custom inner HTML",
+                        "action": "setInnerHtml",
+                        "selector": ".post-load>span",
+                        "value": "<i>Italic</i>",
+                    }
+                ]
+            )
+        </script>
     </body>
 </html>
