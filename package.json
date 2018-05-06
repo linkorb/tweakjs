@@ -1,5 +1,5 @@
 {
-  "name": "tweakjs",
+  "name": "@linkorb/tweakjs",
   "version": "0.1.0",
   "description": "This simple javascript library allows you to tweak the DOM of your pages simply by passing it an array of tweaks.",
   "repository": {
