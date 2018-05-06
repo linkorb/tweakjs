@@ -1,7 +1,8 @@
 (function (w, d) {
   var t = {
+    debug: false,
     log: function (data) {
-      console.log(data)
+      if (this.debug) console.log(data)
     },
     getHandler: function (action) {
       return typeof t.handlers[action] === 'function' ? t.handlers[action] : null
@@ -10,7 +11,8 @@
       return d.head || d.getElementsByTagName('head')[0]
     },
     init: function (event) {
-      // this.log(tweaks)
+      this.debug = w.tweakDebug || this.debug
+      this.log('tweakjs initializing ...')
       this.apply(tweaks)
     },
     apply: function (tweaks) {

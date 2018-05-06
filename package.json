@@ -1,0 +1,23 @@
+{
+  "name": "tweakjs",
+  "version": "0.1.0",
+  "description": "This simple javascript library allows you to tweak the DOM of your pages simply by passing it an array of tweaks.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linkorb/tweakjs.git"
+  },
+  "keywords": [
+    "tweak",
+    "javascript",
+    "linkorb"
+  ],
+  "author": "Hongliang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linkorb/tweakjs/issues"
+  },
+  "homepage": "https://github.com/linkorb/tweakjs#readme",
+  "devDependencies": {
+    "webpack": "^4.7.0"
+  }
+}

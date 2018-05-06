@@ -38,7 +38,7 @@ var tweaks = [
     "action": "addScript",
     "location": "head",
     "src": "",
-    "value": "console.log('Add script tag: head + innerHTML')",
+    "value": "console.log('addScript: Add script tag: head + innerHTML')",
   },
   {
     "description": "Add script tag: body + src",
@@ -54,7 +54,7 @@ var tweaks = [
   {
     "description": "Execute script with eval",
     "action": "execute",
-    "value": "alert('this is bad')",
+    "value": "console.log('execute: eval is bad')",
   },
   {
     "description": "Set avatar to batman",
