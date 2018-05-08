@@ -1,6 +1,9 @@
 (function (w, d) {
   var t = {
     debug: false,
+    setDebug: function() {
+      this.debug = w.tweakDebug || this.debug
+    },
     log: function (data) {
       if (this.debug) console.log(data)
     },
@@ -11,7 +14,7 @@
       return d.head || d.getElementsByTagName('head')[0]
     },
     init: function (event) {
-      this.debug = w.tweakDebug || this.debug
+      this.setDebug()
       this.log('tweakjs initializing ...')
       this.loader.loadGlobal().loadUri()
     },
@@ -115,6 +118,7 @@
       },
       loadGlobal: function() {
         if (w.tweaks) {
+          t.setDebug()
           t.apply(w.tweaks)
         }
         return this;
@@ -125,6 +129,7 @@
           if (uri) {
             s.type = 'text/javascript'
             s.onload = w.tweakjs.loader.loadGlobal
+            s.async = true
             s.src = uri
             t.getDocumentHead().appendChild(s)
           }
