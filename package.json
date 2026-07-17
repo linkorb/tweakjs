@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/linkorb/tweakjs#readme",
   "devDependencies": {
-    "webpack": "^4.7.0"
+    "webpack": "^5.108.4"
   }
 }
